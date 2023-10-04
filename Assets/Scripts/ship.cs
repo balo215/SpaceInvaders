@@ -29,9 +29,9 @@ public class ship : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();   
         originalRotation = transform.rotation.eulerAngles.y;
+
     }
     private void Awake(){
-        Debug.Log(Instance);
         if (Instance == null){
             // If no instance exists, set this as the instance
             Instance = this;
@@ -80,6 +80,10 @@ public class ship : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.D) ){
             isDKeyPressed = false;   
+        }
+        if(Input.GetKeyDown(KeyCode.M)){
+                    transform.position = new Vector3(0f, 0f, 0f);
+
         }
 /*
         if(isAKeyPressed == true && isDKeyPressed == false){
@@ -136,12 +140,25 @@ public class ship : MonoBehaviour
         bulletStarter = cannon.transform.Find("MainCannon").Find("bulletStarter");
         projectilePrefab = bulletPart;
 
-        //Debug.Log(bulletStarter);
-        //thrusters = thrustersPart;
-        //extra = extraPart;
-        //cannon = cannonPart;
-
         moveSpeed = thrusters.GetComponent<Thruster>().GetSpeed();
         Debug.Log(moveSpeed);
     }
+
+    public void repositionShip(){
+        Destroy(helmet);
+        Destroy(thrusters);
+        Destroy(extra);
+        Destroy(cannon);
+        transform.position = new Vector3(0f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(new Vector3(90, 180, 0));
+        bulletStarterSet = false;
+        /*Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePosition - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(angle, -90, 90));
+*/
+    }
+
+
+
 }
