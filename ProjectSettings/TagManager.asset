@@ -8,6 +8,7 @@ TagManager:
   - Ship
   - bulletStarter
   - Enemy
+  - barrier
   layers:
   - Default
   - TransparentFX
