@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thruster : MonoBehaviour
+public class Cannon : MonoBehaviour
 {
 
-    public ThrusterConfig thrusterConfig;
+    public CannonConfig cannonConfig;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,11 @@ public class Thruster : MonoBehaviour
     {
         
     }
-    public float GetSpeed(){
-        return thrusterConfig.baseSpeed;
+
+    public float GetFireRate(){
+        return cannonConfig.fireRate;
     }
     public string GetName(){
-        return thrusterConfig.thrusterName;
+        return cannonConfig.CannonName;
     }
 }

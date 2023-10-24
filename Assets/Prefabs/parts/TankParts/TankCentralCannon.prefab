@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034661557183890411}
   - component: {fileID: 7163551026919837081}
+  - component: {fileID: 1001600740673927815}
   m_Layer: 0
   m_Name: TankCentralCannon
   m_TagString: Untagged
@@ -78,6 +79,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3263559320641217176, guid: 86e722fd27daac0478de5df0f1d18afb, type: 3}
   bulletStarter: {fileID: 4290084452475096499}
+--- !u!114 &1001600740673927815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430186936018797006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e0cacf601407440a5e165fa78534d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonConfig: {fileID: 11400000, guid: 6f603c0a777a7bf448694aae4d673891, type: 2}
 --- !u!1 &7955794045558691066
 GameObject:
   m_ObjectHideFlags: 0

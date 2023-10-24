@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2522689163323401976}
   - component: {fileID: 6564898485056405259}
+  - component: {fileID: 7231726715279613822}
   m_Layer: 0
   m_Name: TankExtra
   m_TagString: Untagged
@@ -381,6 +382,19 @@ MonoBehaviour:
   barrierPrefab: {fileID: 6954806876758711656, guid: 94cd1af4e2efb7249a17f1a8472c5f69, type: 3}
   nextBarrierTime: 3
   barrier: {fileID: 0}
+--- !u!114 &7231726715279613822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357799286827632980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063dbdbfb185cdb4c96f4f6c551016dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extraConfig: {fileID: 11400000, guid: 59d019f599b53084998ee4d1afda9a77, type: 2}
 --- !u!1 &3997457394665238161
 GameObject:
   m_ObjectHideFlags: 0

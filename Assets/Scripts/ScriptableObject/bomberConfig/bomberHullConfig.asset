@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34f224cf2d8aad418fc9e4e64f46fd1, type: 3}
-  m_Name: FastThrusterConfig
+  m_Script: {fileID: 11500000, guid: c14e3a6305f39984da687c9a1ed01799, type: 3}
+  m_Name: bomberHullConfig
   m_EditorClassIdentifier: 
-  thrusterName: fast
-  baseSpeed: 15
-  baseFuelConsumption: 2
+  hullName: Bomber
+  baseSpeed: 7
+  hp: 10

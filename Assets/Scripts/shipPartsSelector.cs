@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class shipPartsSelector : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class shipPartsSelector : MonoBehaviour
     public GameObject extraPanel;
     public GameObject hullPanel;
     public GameObject cannonPanel;
+
+    public TMP_Text thrustersText;
+    public TMP_Text extraText;
+    public TMP_Text hullText;
+    public TMP_Text cannonText;
 
     public int thrusterIndex = 0;
     public int extraIndex = 0;
@@ -46,9 +52,15 @@ public class shipPartsSelector : MonoBehaviour
     void Start()
     {
         thrusters = Instantiate(thrustersPrefabs[thrusterIndex], thrusterPanel.transform.position + new Vector3(0f, -1f, 0f), Quaternion.identity);
-        extra = Instantiate(extraPrefabs[extraIndex], extraPanel.transform.position + new Vector3(0f, -1f, 0f), Quaternion.identity);
-        hull = Instantiate(hullPrefabs[hullIndex], hullPanel.transform.position + new Vector3(0f, -1f, 0f), Quaternion.identity);
+        extra = Instantiate(extraPrefabs[extraIndex], extraPanel.transform.position + new Vector3(0f, -1.5f, 0f), Quaternion.identity);
+        hull = Instantiate(hullPrefabs[hullIndex], hullPanel.transform.position + new Vector3(0f, -1.5f, 0f), Quaternion.identity);
         cannon = Instantiate(cannonPrefabs[cannonIndex], cannonPanel.transform.position + new Vector3(0f, -3f, 0f), Quaternion.identity);
+
+        thrustersText.text = thrusters.GetComponent<Thruster>().GetName();
+        cannonText.text = cannon.GetComponent<Cannon>().GetName();
+        extraText.text = extra.GetComponent<Extra>().GetName();
+        hullText.text = hull.GetComponent<Hull>().GetName();
+
         // Set the Panel as the parent of the instantiated prefab
         ChangeLayerRecursively(thrusters, 5);
         ChangeLayerRecursively(extra, 5);
@@ -170,7 +182,6 @@ public class shipPartsSelector : MonoBehaviour
         setCannon();
     }
     public void prevCannon(){
-        Debug.Log(shipObject);
         foreach (Transform child in cannonPanel.transform){
         // Destroy each child GameObject
             Destroy(child.gameObject);
@@ -188,26 +199,27 @@ public class shipPartsSelector : MonoBehaviour
         ChangeLayerRecursively(thrusters, 5);
         thrusters.transform.parent = thrusterPanel.transform;
         thrusters.transform.localScale = new Vector3(20, 20, 20);
+        thrustersText.text = thrusters.GetComponent<Thruster>().GetName();
         // Set the Panel as the parent of the instantiated prefab
         
     }
 
     void setExtra(){
-        extra = Instantiate(extraPrefabs[extraIndex], extraPanel.transform.position + new Vector3(0f, -1f, 0f), Quaternion.identity);
+        extra = Instantiate(extraPrefabs[extraIndex], extraPanel.transform.position + new Vector3(0f, -1.5f, 0f), Quaternion.identity);
         ChangeLayerRecursively(extra, 5);
         extra.transform.parent = extraPanel.transform;
         extra.transform.localScale = new Vector3(20, 20, 20);
-
+        extraText.text = extra.GetComponent<Extra>().GetName();
         // Set the Panel as the parent of the instantiated prefab
         
     }
 
     void setHull(){
-        hull = Instantiate(hullPrefabs[hullIndex], hullPanel.transform.position + new Vector3(0f, -1f, 0f), Quaternion.identity);
+        hull = Instantiate(hullPrefabs[hullIndex], hullPanel.transform.position + new Vector3(0f, -1.5f, 0f), Quaternion.identity);
         ChangeLayerRecursively(hull, 5);
         hull.transform.parent = hullPanel.transform;
         hull.transform.localScale = new Vector3(20, 20, 20);
-
+        hullText.text = hull.GetComponent<Hull>().GetName();
         // Set the Panel as the parent of the instantiated prefab
         
     }
@@ -217,6 +229,7 @@ public class shipPartsSelector : MonoBehaviour
         ChangeLayerRecursively(cannon, 5);
         cannon.transform.parent = cannonPanel.transform;
         cannon.transform.localScale = new Vector3(60, 60, 60);
+        cannonText.text = cannon.GetComponent<Cannon>().GetName();
         // Set the Panel as the parent of the instantiated prefab
         
     }

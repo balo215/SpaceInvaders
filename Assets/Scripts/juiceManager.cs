@@ -6,9 +6,10 @@ public class juiceManager : MonoBehaviour
 {
     private bool isGamePaused = false;
     public float shakeDuration = 0.15f;
-    public float shakeMagnitude = 0.1f;
-    public float elapsedTime = 0f;
-    private float noiseSeed = 1f;
+
+    public float shakeAngle = 0.5f; // The maximum angle of rotation during the shake.
+    private Quaternion originalRotation;
+
 
     public Camera mainCamera;
     public Vector3 originalPosition;
@@ -16,6 +17,7 @@ public class juiceManager : MonoBehaviour
     void Start(){
         mainCamera.enabled = true;
         originalPosition = mainCamera.transform.localPosition;
+        originalRotation = mainCamera.transform.rotation;
     }
 
     void Update(){
@@ -29,16 +31,15 @@ public class juiceManager : MonoBehaviour
     private IEnumerator ShakeCoroutine(){
         float elapsed = 0f;
         while (elapsed < shakeDuration){
-            float x = Mathf.PerlinNoise(noiseSeed, 0) * 2 - 1;
-            float y = Mathf.PerlinNoise(0, .4f) * 2 - 1;
-            x *= shakeMagnitude;
-            y *= shakeMagnitude;
-            mainCamera.transform.localPosition = originalPosition + new Vector3(x, y, 0);
+
+            float randomAngle = Random.Range(-shakeAngle, shakeAngle);
+            Quaternion newRotation = Quaternion.Euler(0f, 0f, randomAngle);
+            mainCamera.transform.rotation = newRotation;
             elapsed += Time.deltaTime;
-            noiseSeed += Time.deltaTime * 20; // Adjust the speed of Perlin noise to control the shaking.
+
             yield return null;
         }
-        mainCamera.transform.localPosition = originalPosition;
+        mainCamera.transform.rotation = originalRotation;
     }
 
     public void PauseGame(float duration){

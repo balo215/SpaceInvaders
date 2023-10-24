@@ -1,0 +1,79 @@
+parts of ships
+	have an empty object
+		this object will have 4 child empty objects (prefabs will be instatiated into this 4 gameObjects):
+			helmet
+			thrusters
+			cannon
+			extra
+prefabs organization: 
+	gameObject set to 0 (all properties)
+		parts: (transform set for its final position in the built ship)
+		helmet
+		thrusters
+		cannon
+		extra
+
+ship builder manager:
+	
+
+TBD:
+	having a complete prefab of the ship (in order to be able to organize the transform of each piece)
+
+
+Step 1: Define Scriptable Objects for Ship Parts and Upgrades
+
+Create scriptable objects for each ship part type (Thruster, Cannon, Ship Hull, Extra Device).
+Each scriptable object contains common and unique attributes for that part type.
+Create an upgrade scriptable object to hold the upgrade values for each part type.
+Step 2: Create Prefabs for Ship Parts
+
+Create prefabs for each ship part type (Thruster Prefab, Cannon Prefab, etc.).
+Attach the respective ship part script to each prefab.
+Assign the appropriate scriptable object for each ship part type in the Inspector.
+Step 3: Create Ship Prefabs
+
+Create prefabs for different ship configurations.
+Compose each ship prefab with the desired combination of ship part prefabs (Thruster, Cannon, Ship Hull, Extra Device).
+Step 4: ShipBuilder Script
+
+Create a ShipBuilder script to manage the construction of ships.
+Allow the player to select ship configurations by swapping ship part prefabs.
+Handle the application of upgrades to ship parts based on the selected upgrades.
+Step 5: UpgradeManager Script
+
+Create an UpgradeManager script to handle upgrades.
+Allow the player to spend resources (e.g., currency) to apply upgrades to ship parts.
+Apply the upgrade values from the upgrade scriptable objects to the respective ship part scriptable objects.
+Step 6: Gameplay Mechanics
+
+Implement gameplay mechanics that consider the attributes and configurations of the ships.
+Use the attributes of ship parts (e.g., speed, fire rate, fuel consumption) during gameplay to affect ship behavior.
+Step 7: UI and Feedback
+
+Create a user interface (UI) to allow the player to interact with ship selection and upgrades.
+Provide feedback to the player on ship attributes and upgrade progress.
+
+
+
+few types of currencies (resourses), 5 (2 common, 2 rare, 1 legendary) and currency to buy ship parts
+refueling, repairing and restocking ammo require 2 types of resourses (the 2 more common)
+upgrading needs 3 types of resourses (2 common, 1rare), except last levels require 1 legendary type too
+to buy a ship part, you require all types of resources
+the 2 common ones are in all levels
+the 2 rares are one level per level
+the legendary is at special levels (bosses) or special missions (finishing conditions)
+
+each piece of resourse will have a base price, which will: 
+change (UP) if each round (battle) is not sell by the player
+change (Down) if too many of the same item is being sold at a time
+
+add "juiciness" to each level
+levels could be composed of grinding small monsters, a mini-boss and final boss
+at random rates, a "special" enemy will appear and give the player special skills (temp new skills or higher stats)
+the less damage taken less costs and the end of each mission
+a ratio between enemies killed and remaining health will give the player the chance to get one of the special enemies, making the level easier and or faster
+
+
+for Inventory i'll need a way to verify if its the first time in the store (maybe look in the inventory for already bought parts)
+	InventoryManager->IsEmpty(), if true start as normal
+	else get indexValue from inventoryManager

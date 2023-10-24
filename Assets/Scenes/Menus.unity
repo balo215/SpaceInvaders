@@ -1652,8 +1652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 0.2
-  shakeMagnitude: 0.1
-  elapsedTime: 0
+  shakeAngle: 0.5
   mainCamera: {fileID: 42890393}
   originalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1733761387

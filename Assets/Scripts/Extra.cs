@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thruster : MonoBehaviour
+public class Extra : MonoBehaviour
 {
-
-    public ThrusterConfig thrusterConfig;
+    public ExtraConfig extraConfig;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +17,10 @@ public class Thruster : MonoBehaviour
     {
         
     }
-    public float GetSpeed(){
-        return thrusterConfig.baseSpeed;
+    public string GetPropertyLabel(){
+        return extraConfig.propertyLabel;
     }
     public string GetName(){
-        return thrusterConfig.thrusterName;
+        return extraConfig.extraName;
     }
 }

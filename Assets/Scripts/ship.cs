@@ -140,8 +140,7 @@ public class ship : MonoBehaviour
         bulletStarter = cannon.transform.Find("MainCannon").Find("bulletStarter");
         projectilePrefab = bulletPart;
 
-        moveSpeed = thrusters.GetComponent<Thruster>().GetSpeed();
-        Debug.Log(moveSpeed);
+        moveSpeed = thrusters.GetComponent<Thruster>().GetSpeed() + helmet.GetComponent<Hull>().GetSpeed();
     }
 
     public void repositionShip(){
