@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CannonName: Bomber
   damage: 4
-  fireRate: 1
+  fireRate: 3

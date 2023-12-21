@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dc6d0673efec5468a0ffdbd351ea90, type: 3}
   m_Name: tankExtraConfig
   m_EditorClassIdentifier: 
-  propertyLabel: Shield Duration
+  propertyLabel: Energy Field
   damage: 0
   fireRate: 5
   extraName: Mega Shield
+  fuelCons: 8

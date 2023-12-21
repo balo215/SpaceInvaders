@@ -30,6 +30,15 @@ public class shipPartsSelector : MonoBehaviour
     public TMP_Text hullText;
     public TMP_Text cannonText;
 
+    public TMP_Text cannonDamageText;
+    public TMP_Text cannonFireRateText;
+    public TMP_Text hullHPText;
+    public TMP_Text hullFuelText;
+    public TMP_Text thrusterSpeedText;
+    public TMP_Text thrusterFuelConsText;
+    public TMP_Text extraAbilityText;
+    public TMP_Text extraFuelConsText;
+
     public int thrusterIndex = 0;
     public int extraIndex = 0;
     public int hullIndex = 0;
@@ -48,6 +57,8 @@ public class shipPartsSelector : MonoBehaviour
     public Camera uiCamera;
     public Camera gameCamera;
 
+    //public PlayerSelectionManager playerSelection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +71,16 @@ public class shipPartsSelector : MonoBehaviour
         cannonText.text = cannon.GetComponent<Cannon>().GetName();
         extraText.text = extra.GetComponent<Extra>().GetName();
         hullText.text = hull.GetComponent<Hull>().GetName();
+
+        cannonDamageText.text = cannon.GetComponent<Cannon>().GetDamage().ToString();
+        cannonFireRateText.text = cannon.GetComponent<Cannon>().GetFireRate().ToString();
+        hullHPText.text = hull.GetComponent<Hull>().GetHP().ToString();
+        hullFuelText.text = hull.GetComponent<Hull>().GetFuel().ToString();
+        thrusterSpeedText.text = thrusters.GetComponent<Thruster>().GetSpeed().ToString();
+        thrusterFuelConsText.text = thrusters.GetComponent<Thruster>().GetFuelCons().ToString();
+        extraAbilityText.text = extra.GetComponent<Extra>().GetAbility();
+        extraFuelConsText.text = extra.GetComponent<Extra>().GetFuelCons().ToString();
+
 
         // Set the Panel as the parent of the instantiated prefab
         ChangeLayerRecursively(thrusters, 5);
@@ -88,6 +109,9 @@ public class shipPartsSelector : MonoBehaviour
 
         selectButton.onClick.AddListener(selectShip);
         shipObject = GameObject.FindWithTag("Ship");
+        //PlayerSelection playerSelection = PlayerSelectionManager.LoadSelections("main");
+        
+        Debug.Log("shipPartsSelector");
     }
 
     // Update is called once per frame
@@ -200,6 +224,8 @@ public class shipPartsSelector : MonoBehaviour
         thrusters.transform.parent = thrusterPanel.transform;
         thrusters.transform.localScale = new Vector3(20, 20, 20);
         thrustersText.text = thrusters.GetComponent<Thruster>().GetName();
+        thrusterSpeedText.text = thrusters.GetComponent<Thruster>().GetSpeed().ToString();
+        thrusterFuelConsText.text = thrusters.GetComponent<Thruster>().GetFuelCons().ToString();
         // Set the Panel as the parent of the instantiated prefab
         
     }
@@ -210,6 +236,8 @@ public class shipPartsSelector : MonoBehaviour
         extra.transform.parent = extraPanel.transform;
         extra.transform.localScale = new Vector3(20, 20, 20);
         extraText.text = extra.GetComponent<Extra>().GetName();
+        extraAbilityText.text = extra.GetComponent<Extra>().GetAbility();
+        extraFuelConsText.text = extra.GetComponent<Extra>().GetFuelCons().ToString();
         // Set the Panel as the parent of the instantiated prefab
         
     }
@@ -220,6 +248,8 @@ public class shipPartsSelector : MonoBehaviour
         hull.transform.parent = hullPanel.transform;
         hull.transform.localScale = new Vector3(20, 20, 20);
         hullText.text = hull.GetComponent<Hull>().GetName();
+        hullHPText.text = hull.GetComponent<Hull>().GetHP().ToString();
+        hullFuelText.text = hull.GetComponent<Hull>().GetFuel().ToString();
         // Set the Panel as the parent of the instantiated prefab
         
     }
@@ -230,12 +260,17 @@ public class shipPartsSelector : MonoBehaviour
         cannon.transform.parent = cannonPanel.transform;
         cannon.transform.localScale = new Vector3(60, 60, 60);
         cannonText.text = cannon.GetComponent<Cannon>().GetName();
+        cannonDamageText.text = cannon.GetComponent<Cannon>().GetDamage().ToString();
+        cannonFireRateText.text = cannon.GetComponent<Cannon>().GetFireRate().ToString();
         // Set the Panel as the parent of the instantiated prefab
         
     }
 
     void selectShip(){
         shipObject.GetComponent<ship>().SetParts(hullPrefabs[hullIndex], thrustersPrefabs[thrusterIndex], extraPrefabs[extraIndex], cannonPrefabs[cannonIndex], bulletPrefabs[cannonIndex]);
+        string saveFile = PlayerSelectionManager.GetCurrentSaveFile();
+        PlayerSelection playerSelection = PlayerSelectionManager.LoadSelections(saveFile);
+        PlayerSelectionManager.SaveSelections(saveFile, cannonIndex, hullIndex, thrusterIndex, extraIndex, playerSelection.SelectedSaveFileName);
         SceneManager.LoadScene("Menus");
         
     }

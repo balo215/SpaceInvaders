@@ -7,33 +7,31 @@ using UnityEngine.UI;
 
 public class entering : MonoBehaviour
 {
-
+    public Button newBtn;
+    public Button continueBtn;
+    public Button deleteBtn;
+    public GameObject saveSlotModal;
 
     // Start is called before the first frame update
     void Start()
     {
-        Button button = GetComponent<Button>();
+        
         // Add a click event listener to the button
-        button.onClick.AddListener(OnButtonClick);    
+        newBtn.onClick.AddListener(OnNewButtonClick);         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)){
-            // Load the specified scene
-            Debug.Log("Entering");
-            SceneManager.LoadScene("shipBuilder");
-        }
+    private void OnNewButtonClick(){
+        newBtn.interactable = false;
+        continueBtn.interactable = false;
+        deleteBtn.interactable = false;
+        saveSlotModal.SetActive(true);
     }
 
-    private void OnButtonClick()
-    {
-        // Load the specified scene
-        SceneManager.LoadScene("shipBuilder");
-        if (SceneManager.GetSceneByName("title").isLoaded){
-            SceneManager.UnloadScene("title");
-        }
+    private void OnDeleteButtonClick(string saveFile){
+        PlayerSelectionManager.DeleteSaveData(saveFile);
+        deleteBtn.interactable = false;
+        continueBtn.interactable = false;
+
     }
 
 

@@ -24,4 +24,7 @@ public class Thruster : MonoBehaviour
     public string GetName(){
         return thrusterConfig.thrusterName;
     }
+    public float GetFuelCons(){
+        return thrusterConfig.baseFuelConsumption;
+    }
 }

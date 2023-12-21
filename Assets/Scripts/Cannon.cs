@@ -23,6 +23,9 @@ public class Cannon : MonoBehaviour
     public float GetFireRate(){
         return cannonConfig.fireRate;
     }
+    public float GetDamage(){
+        return cannonConfig.damage;
+    }
     public string GetName(){
         return cannonConfig.CannonName;
     }

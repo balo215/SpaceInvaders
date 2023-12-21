@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dc6d0673efec5468a0ffdbd351ea90, type: 3}
   m_Name: bomberExtraConfig
   m_EditorClassIdentifier: 
-  propertyLabel: ExtraRing
+  propertyLabel: Burst of speed
   damage: 0
   fireRate: 0
   extraName: Hyper Ring
+  fuelCons: 3

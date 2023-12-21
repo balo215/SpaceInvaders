@@ -157,7 +157,4 @@ public class ship : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(angle, -90, 90));
 */
     }
-
-
-
 }

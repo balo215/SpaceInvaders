@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hullName: Tank
   baseSpeed: 3
-  hp: 10
+  hp: 15
+  fuel: 12

@@ -7,11 +7,11 @@ public class drillCannon : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject bulletStarter;
     private float nextFireTime = 0;
-    private float fireRate = 2f;
+    private float fireRate;
     // Start is called before the first frame update
     void Start()
     {
-        
+        fireRate = GetComponent<Cannon>().GetFireRate();
     }
 
     // Update is called once per frame

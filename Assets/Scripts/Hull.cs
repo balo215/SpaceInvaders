@@ -17,7 +17,12 @@ public class Hull : MonoBehaviour
     {
         
     }
-
+    public float GetFuel(){
+        return hullConfig.fuel;
+    }
+    public float GetHP(){
+        return hullConfig.hp;
+    }
     public float GetSpeed(){
         return hullConfig.baseSpeed;
     }

@@ -15,3 +15,4 @@ MonoBehaviour:
   hullName: Bomber
   baseSpeed: 7
   hp: 10
+  fuel: 8

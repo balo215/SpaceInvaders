@@ -23,4 +23,10 @@ public class Extra : MonoBehaviour
     public string GetName(){
         return extraConfig.extraName;
     }
+    public float GetFuelCons(){
+        return extraConfig.fuelCons;
+    }
+    public string GetAbility(){
+        return extraConfig.propertyLabel;
+    }
 }

@@ -6,4 +6,5 @@ public class HullConfig : ScriptableObject
     public string hullName;
     public float baseSpeed;
     public float hp;
+    public float fuel;
 }

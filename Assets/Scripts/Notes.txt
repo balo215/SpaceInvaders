@@ -77,3 +77,6 @@ a ratio between enemies killed and remaining health will give the player the cha
 for Inventory i'll need a way to verify if its the first time in the store (maybe look in the inventory for already bought parts)
 	InventoryManager->IsEmpty(), if true start as normal
 	else get indexValue from inventoryManager
+
+For the shield, add a pattern to it, and when being hit, use FixedUpdate and fix a change into a 2 frame window, 
+the change will be to change the pattern to a noise instead of the one from the image to make it look like smash when a shield is being hit

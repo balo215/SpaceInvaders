@@ -7,12 +7,13 @@ public class bomberCannon : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject bulletStarter;
     private float nextFireTime = 1f;
-    private float fireRate = .1f;
+    private float fireRate;
     private Camera camera;
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
+        fireRate = GetComponent<Cannon>().GetFireRate();
     }
 
     // Update is called once per frame

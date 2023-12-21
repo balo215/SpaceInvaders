@@ -7,4 +7,5 @@ public class ExtraConfig : ScriptableObject
     public float damage;
     public float fireRate;
     public string extraName;
+    public float fuelCons;
 }
